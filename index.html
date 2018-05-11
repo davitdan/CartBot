@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>CartBot</title>
+</head>
+<body>
+    <div class="app">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="active" id="home" data-toggle="pill" href="#Home">Home</a>
+            <a id="connect" data-toggle="pill" href="connect.html">Connect</a>
+            <a id="mode" data-toggle="pill" href="mode.html">Mode</a>
+            <a id="settings" data-toggle="pill" href="#Settings">Settings</a>
+            <a id="about" data-toggle="pill" href="#About">About us</a>
+        </div>
+        <div class="topnav">
+            <div id="main">
+                <span style="font-size:30px;cursor:pointer; color:cornflowerblue; font-family:  Snell Roundhand, cursive ; " onclick="openNav()">&#9776; CartBot</span>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="Home" class="tab-pane fade in active">
+                <div style="padding-left:16px">
+                    <h1 style="font-family:Courier New, monospace; color:dimgray; font-size:30px;">Home</h1>
+                    <p style="font-size:35px; font-family:  Snell Roundhand, cursive ;">  <strong>Traveling has never been this easy.</strong> </p>
+                    <p style="font-size:25px; font-family:  Snell Roundhand, cursive ;">We made things simple.</p>
+                    <p style="font-size:25px; font-family:  Snell Roundhand, cursive ;">In order to connect just open the menu located in the upper left corner, and you are good to go.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="scripts/index.js"></script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
