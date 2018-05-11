@@ -2,52 +2,145 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no
+		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>CartBot REDISIGN w/OLD</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="ui/css/Cartbot.ui.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://www.w3.org/TR/vibration/"></script>
+    <style>
+        @import 'ui/css/evothings-app.css';
+    </style>
+    <!--<style>@import 'ui/css/evothings.css';</style>-->
+    <script>
+        // Redirect console.log to Evothings Workbench.
+        if (window.hyper && window.hyper.log) { console.log = hyper.log }
+        window.onerror = function (msg, url, line) {
+            console.log(msg + ": " + url + ":" + line);
+        };
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>CartBot</title>
+    <!--
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" />
+    -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <title>Light Control</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
 </head>
-<body>
-    <div class="app">
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="active" id="home" data-toggle="pill" href="#Home">Home</a>
-            <a id="connect" data-toggle="pill" href="connect.html">Connect</a>
-            <a id="mode" data-toggle="pill" href="mode.html">Mode</a>
-            <a id="settings" data-toggle="pill" href="#Settings">Settings</a>
-            <a id="about" data-toggle="pill" href="#About">About us</a>
-        </div>
-        <div class="topnav">
-            <div id="main">
-                <span style="font-size:30px;cursor:pointer; color:cornflowerblue; font-family:  Snell Roundhand, cursive ; " onclick="openNav()">&#9776; CartBot</span>
-            </div>
-        </div>
-        <div class="tab-content">
-            <div id="Home" class="tab-pane fade in active">
-                <div style="padding-left:16px">
-                    <h1 style="font-family:Courier New, monospace; color:dimgray; font-size:30px;">Home</h1>
-                    <p style="font-size:35px; font-family:  Snell Roundhand, cursive ;">  <strong>Traveling has never been this easy.</strong> </p>
-                    <p style="font-size:25px; font-family:  Snell Roundhand, cursive ;">We made things simple.</p>
-                    <p style="font-size:25px; font-family:  Snell Roundhand, cursive ;">In order to connect just open the menu located in the upper left corner, and you are good to go.</p>
+<body ontouchstart="">
+
+    <p class="version">v 1.2.4</p>
+    <div data-role="main" class="ui-content">
+        <div class="container">
+
+            <ul class="nav nav-pills">
+                <li class="active"><a id="connect" data-toggle="pill" href="#menu1">Connect</a></li>
+                <li><a id="mode" data-toggle="pill" href="#menu2">Mode</a></li>
+                <li><a id="settings" data-toggle="pill" href="#menu3">Settings</a></li>
+                <li><a id="aboutUs" data-toggle="pill" href="#menu4">About Us</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <!--CONNECTION-->
+                <div id="menu1" class="tab-pane fade in active">
+                    <h1 style="color:darkturquoise;">Connecting to CartBot</h1>
+                    <p style="color:darkgrey">App might be unstable.</p>
+                    <p style="color:whitesmoke; font-size:20px;">Please Turn on your Bluetooth.</p>
+                    <div id="connectionScreen">
+                        <ul id="deviceList" class="topcoat-list"></ul>
+                        <div style="margin: 10px">
+                            <button class="topcoat-button" id="refreshButton">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+                <!--MODE-->
+
+                <div id="menu2" class="tab-pane fade">
+                    <h3 id="driving" style="color:darkturquoise; font-size:30px;">Driving Mode</h3>
+                    <button id="manual" class="manBtn">Manual</button>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content modal-background">
+
+                            <span id="closebox" class="close">&times;</span>
+                            <button id="instrbttn">Instructions</button>
+                            <div id="instr" class="instruction">
+
+                                <div class="instruction-content">
+                                    <span class="close1" id="close1">&times;</span>
+                                    <p><strong>IMPORTANT!!!</strong></p>
+                                    <p>When you press the 'UP' button the Cart will continuously go ahead,<br />untill you press the red (stop) button. </p>
+                                    <p>When you press the 'LEFT' or 'RIGHT' buttons, the Cart will rotate by remaining its position.</p>
+                                </div>
+                            </div>
+                            <!--<div id="up" class="triangle-up"></div>
+                            <div id="down" class="triangle-down"></div>
+                            <div id="right" class="triangle-right"></div>
+                            <div id="left" class="triangle-left"></div>
+                            <div id="st" class="circle"></div>-->
+                                                <div id="colorScreen">
+                        <button class="green wide" onclick="app.ledOn()">Light ON</button>
+                        <button class="red wide" onclick="app.Off()">Light OFF</button>
+                        <button class="red wide" onclick="app.Up()">Up</button>
+                        <button class="red wide" onclick="app.Left()">Left</button>
+                        <button class="red wide" onclick="app.Right()">Right</button>
+                        <button class="red wide" onclick="app.Reverse()">Reverse</button>
+                        <button class="red wide" id="stop"  onclick="app.Stop()">STOP!!!</button>
+                        <button class="yellow wide" id="disconnectButton" onclick="app.disconnect()">Disconnect</button>
+                    </div>
+                        </div>
+                    </div>
+
+                    <button id="stopMode" class="stopBtn" onclick="app.Stop()">STOP!!!</button>
+                    <button id="auto" class="autoBtn">Auto</button>
+
+                </div>
+                <!--SETTINGS-->
+                <div id="menu3" class="tab-pane fade">
+                    <h1>Under Construction</h1>
+                </div>
+                <!--ABOUT US-->
+                <div id="menu4" class="tab-pane fade">
+                    <h1>About Us...</h1>
                 </div>
             </div>
         </div>
+        <div id="messageDiv" style="font-size:75%"></div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/underscore-min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+
+            app.ledOn = function () {
+                bluetoothSerial.write("a");
+            }
+            app.ledOff = function () {
+                bluetoothSerial.write("b");
+            }
+            app.Up = function () {
+                bluetoothSerial.write('1');
+            }
+            app.Left = function () {
+                bluetoothSerial.write('2');
+            }
+            app.Right = function () {
+                bluetoothSerial.write('3');
+            }
+            app.Reverse = function () {
+                bluetoothSerial.write('4');
+            }
+            app.Stop = function () {
+                bluetoothSerial.write('0');
+            }
+            console.dir(connectionScreen);
+        </script>
     </div>
+
 </body>
 </html>
-
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="scripts/index.js"></script>
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
-</script>

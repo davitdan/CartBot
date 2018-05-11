@@ -1,291 +1,81 @@
-body {
-    font-family: "Lato", sans-serif;
-    transition: background-color .5s;
-    background-image: linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image: -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #A7A7A7), color-stop(0.51, #E4E4E4) );
-}
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-
-        .sidenav a {
-            font-size: 18px;
-        }
-}
-
-.topnav {
-    overflow: hidden;
-    background-color: #333;
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
 body {
-    margin: 0;
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: red; /* For browsers that do not support gradients */
+    background: linear-gradient(red, yellow); /* Standard syntax (must
+
+  
+    .app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+                                   background-color:red;
 }
 
-.topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-.buttonM {
-    background-color: cyan;
-    border: outset;
-    color: gray;
-    padding: 25px 58px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 60px 100px;
-    cursor: pointer;
-}
-
-.buttonS {
-    background-color: #e00000;
-    border: inset;
-    color: black;
-    padding: 20px 53px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 100px;
-    cursor: pointer;
-}
-
-.buttonA {
-    background-color: cyan;
-    border: outset;
-    color: gray;
-    padding: 25px 66px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 60px 100px;
-    cursor: pointer;
-}
-
-.buttonm {
-    border-radius: 13px;
-}
-
-.buttons {
-    border-radius: 8px;
-}
-
-.switch {
-    position: absolute;
-    top: 17.5%;
-    left: 60%;
-    height: 30px;
-    width: 26px;
-    display: inline-block;
-}
-
-
-
-
-
-.modal {
-    z-index: 1; /* Sit on top */
-    background-color: gray;
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: dimgrey;
-    padding: 20px;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-}
-
-
-/* The Close Button */
-.close {
-    color: #efefef;
-    float: right;
-    font-size: 33px;
-    font-weight: bold;
-}
-
-.modal-background {
-    background-color: lightslategray;
-}
-
-/*.dropbtn {
-    background-color: #007bff;
-    position: absolute;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top:30%;
-    left:20%;
-    background-color: #0054af;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
     }
-
-
-.show {
-    display: block;
-}*/
-
-
-
-/*Triangle buttons*/
-.triangle-up {
-    position: absolute;
-    left: 32%;
-    top: 20%;
-    width: 0;
-    height: 0;
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 110px solid #333;
 }
 
-
-.triangle-down {
-    position: absolute;
-    left: 32%;
-    top: 55%;
-    width: 0;
-    height: 0;
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-top: 110px solid #333;
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
 }
 
-
-.triangle-right {
-    position: absolute;
-    left: 66%;
-    top: 37%;
-    width: 0;
-    height: 0;
-    border-top: 55px solid transparent;
-    border-left: 100px solid #333;
-    border-bottom: 55px solid transparent;
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
 }
 
-
-.triangle-left {
-    position: absolute;
-    left: 9%;
-    top: 37%;
-    width: 0;
-    height: 0;
-    border-top: 55px solid transparent;
-    border-right: 100px solid #333;
-    border-bottom: 55px solid transparent;
+.event.listening {
+    background-color:#333333;
+    display:block;
 }
 
-
-.circle {
-    position: absolute;
-    left: 35%;
-    top: 37%;
-    height: 120px;
-    width: 120px;
-    background-color: #d30000;
-    border-radius: 50%;
+.event.received {
+    background-color:#4B946A;
+    display:none;
 }
 
-.instruction {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
 }
-
-/* Modal Content */
-.instruction-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
 }
-
-.close1 {
-    color: #efefef;
-    float: right;
-    font-size: 33px;
-    font-weight: bold;
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
 }
